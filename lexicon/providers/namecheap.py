@@ -19,7 +19,7 @@ class Provider(BaseProvider):
         found_domain = payload.find('CommandResponse').find('DomainGetListResult').find('Domain')
         if not found_domain:
             raise StandardError('No domain found')
-        if len(payload.find('CommandResponse').find('DomainGetListResult').findall('Domain') > 1:
+        if len(payload.find('CommandResponse').find('DomainGetListResult').findall('Domain')) > 1:
             raise StandardError('Too many domains found. This should not happen')
 
         self.domain_id = found_domain.get('ID')
